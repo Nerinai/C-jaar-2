@@ -1,0 +1,29 @@
+#############################################################################
+#
+# Project Makefile
+#
+# (c) Wouter van Ooijen (www.voti.nl) 2016
+#
+# This file is in the public domain.
+# 
+#############################################################################
+
+# source files in this project (main.cpp is automatically assumed)
+SOURCES := 
+
+# header files in this project
+HEADERS := player.hpp
+
+# other places to look for files for this project
+SEARCH  := 
+
+# set BMPTK to the next higher directory and defer to the Makefile.due
+BMPTK := $(BMPTK)../
+include $(BMPTK)Makefile.due
+
+
+main.cpp: Makefile decoder.exe player.hpp
+	decoder play_melody "we-rock:d=4,o=6,b=140:32d#.5,32d.5,32d#.5,8f#.5,32g#.5,32f#.5,32f.5,32f#.5,8a#.5,16b5,16a#5,16a5,16a#5,16f6,16d#6,16d6,16d#6,16f6,16d#6,16d6,16d#6,8f#.6,8d#6,8f#6,32c#6,32d#6,16f6,8d#6,8c#6,8d#6,32c#6,32d#6,16f6,8d#6,8c#6,8d#6,32c#6,32d#6,16f6,8d#6,8c#6,8c6,4a#5,16f5,32d#5,16d5,16d#5,4f#5,16g#5,16f#5,16f5,16f#5,4a#5,16b5,16a#5,16a5,16a#5,16f6,16d#6,16d6,16d#6,16f6,16d#6,16d6,16d#6,4f#6,8d#6,8f#6,32c#6,32d#6,16f6,8d#6,8c#6,8d#6,32c#6,32d#6,16f6,8d#6,8c#6,8d#6,32c#6,32d#6,16f6,8d#6,8c#6,8c6,4a#5,8a#5,8b5,8c#6,8c#6,16d#6,16c#6,16b5," > main.cpp
+	
+decoder.exe: decoder.cpp
+	g++ decoder.cpp -o decoder.exe
