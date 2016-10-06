@@ -6,70 +6,33 @@
     <TabInfo>
       <wxString Value="C:\Users\Dorf\Dropbox\school\C++ en ASSEMBLER\Week 1\Week_1_Practicum_1.3\Makefile" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="27" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\Dorf\Dropbox\school\C++ en ASSEMBLER\Week 1\Week_1_Practicum_1.3\main.cpp" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="0" Name="CurrentLine"/>
+      <int Value="28" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\Dorf\Dropbox\school\C++ en ASSEMBLER\Week 1\Week_1_Practicum_1.3\decoder.cpp" Name="FileName"/>
-      <int Value="154" Name="FirstVisibleLine"/>
-      <int Value="155" Name="CurrentLine"/>
+      <int Value="165" Name="FirstVisibleLine"/>
+      <int Value="193" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="C:\Users\Dorf\Dropbox\school\C++ en ASSEMBLER\Week 1\Week_1_Practicum_1.2\main.cpp" Name="FileName"/>
-      <int Value="82" Name="FirstVisibleLine"/>
-      <int Value="110" Name="CurrentLine"/>
+      <wxString Value="C:\Users\Dorf\Dropbox\school\C++ en ASSEMBLER\Week 1\2016-2017-V2CPSE1-01-02-ringtone\main.cpp" Name="FileName"/>
+      <int Value="232" Name="FirstVisibleLine"/>
+      <int Value="238" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="C:\Users\Dorf\Dropbox\school\C++ en ASSEMBLER\Week 1\Week_1_Practicum_1.2\decoder.cpp" Name="FileName"/>
-      <int Value="118" Name="FirstVisibleLine"/>
-      <int Value="146" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\Dorf\Dropbox\school\C++ en ASSEMBLER\Week 1\Week_1_Practicum_1.2\Makefile" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="0" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\Dorf\Dropbox\school\C++ en ASSEMBLER\Week 1\Week_1_Practicum_1.2\player.hpp" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="0" Name="CurrentLine"/>
+      <wxString Value="C:\Users\Dorf\Dropbox\school\C++ en ASSEMBLER\Week 1\Week_1_Practicum_1.3\player.hpp" Name="FileName"/>
+      <int Value="39" Name="FirstVisibleLine"/>
+      <int Value="67" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
   </TabInfoArray>
   <SerializedObject Name="m_breakpoints">
-    <long Value="1" Name="Count"/>
-    <SerializedObject Name="Breakpoint0">
-      <wxString Value="C:\Users\Dorf\Dropbox\school\C++ en ASSEMBLER\Week 1\Week_1_Practicum_1.2\main.cpp" Name="file"/>
-      <int Value="4" Name="lineno"/>
-      <wxString Value="" Name="function_name"/>
-      <wxString Value="" Name="memory_address"/>
-      <int Value="1" Name="bp_type"/>
-      <int Value="0" Name="watchpoint_type"/>
-      <wxString Value="" Name="watchpt_data"/>
-      <CData Name="commandlist"/>
-      <bool Value="0" Name="regex"/>
-      <bool Value="0" Name="is_temp"/>
-      <bool Value="1" Name="is_enabled"/>
-      <int Value="0" Name="ignore_number"/>
-      <wxString Value="" Name="conditions"/>
-      <int Value="0" Name="origin"/>
-    </SerializedObject>
+    <long Value="0" Name="Count"/>
   </SerializedObject>
 </Session>

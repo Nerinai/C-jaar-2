@@ -30,7 +30,7 @@ done:
 	
 invert:
 	push { r1 - r5, lr}
-	ldr r1, =32
+	ldr r1, =( 'a' - 'A' )
 	ldr r2, ='a'
 	ldr r3, ='z'
 	ldr r4, ='A'

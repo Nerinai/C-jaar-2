@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="example code" Database="">
   <Project Name="2016-2017-V2CPSE1-01-01-message" Path="2016-2017-V2CPSE1-01-01-message/_codelite.project" Active="No"/>
-  <BuildMatrix>
-    <WorkspaceConfiguration Name="Release" Selected="yes">
-      <Project Name="2016-2017-V2CPSE1-01-01-message" ConfigName="Release"/>
-    </WorkspaceConfiguration>
-  </BuildMatrix>
   <Project Name="2016-2017-V2CPSE1-01-02-ringtone" Path="2016-2017-V2CPSE1-01-02-ringtone/_codelite.project" Active="No"/>
-  <BuildMatrix>
-    <WorkspaceConfiguration Name="Release" Selected="yes">
-      <Project Name="2016-2017-V2CPSE1-01-02-ringtone" ConfigName="Release"/>
-    </WorkspaceConfiguration>
-  </BuildMatrix>
   <Project Name="2016-2017-V2CPSE1-01-03-asm-print-screen" Path="2016-2017-V2CPSE1-01-03-asm-print-screen/_codelite.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
@@ -36,6 +26,24 @@
       <Project Name="2016-2017-V2CPSE1-02-03-std-array" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
+  <Project Name="2016-2017-V2CPSE1-02-04-specialization" Path="2016-2017-V2CPSE1-02-04-specialization/_codelite.project" Active="No"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="2016-2017-V2CPSE1-02-04-specialization" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+  <Project Name="2016-2017-V2CPSE1-02-05-proxy" Path="2016-2017-V2CPSE1-02-05-proxy/_codelite.project" Active="No"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="2016-2017-V2CPSE1-02-05-proxy" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+  <Project Name="2016-2017-V2CPSE1-03-01-print" Path="2016-2017-V2CPSE1-03-01-print/_codelite.project" Active="No"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="2016-2017-V2CPSE1-03-01-print" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
   <Project Name="2016-2017-V2CPSE1-04-01-systick" Path="2016-2017-V2CPSE1-04-01-systick/_codelite.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
@@ -54,22 +62,26 @@
       <Project Name="2016-2017-V2CPSE1-04-03-corruption" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
-  <Project Name="2016-2017-V2CPSE1-02-04-specialization" Path="2016-2017-V2CPSE1-02-04-specialization/_codelite.project" Active="No"/>
+  <Project Name="practicum_2_1" Path="practicum_2_1/_codelite.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
-      <Project Name="2016-2017-V2CPSE1-02-04-specialization" ConfigName="Release"/>
+      <Project Name="practicum_2_1" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
-  <Project Name="2016-2017-V2CPSE1-02-05-proxy" Path="2016-2017-V2CPSE1-02-05-proxy/_codelite.project" Active="Yes"/>
+  <Project Name="practicum_3" Path="practicum_3/practicum_3.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
-      <Project Name="2016-2017-V2CPSE1-02-05-proxy" ConfigName="Release"/>
+      <Environment/>
+      <Project Name="2016-2017-V2CPSE1-01-01-message" ConfigName="Release"/>
+      <Project Name="practicum_3" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
-  <Project Name="2016-2017-V2CPSE1-03-01-print" Path="2016-2017-V2CPSE1-03-01-print/_codelite.project" Active="No"/>
+  <Project Name="Chris_zn_sjit" Path="Chris_zn_sjit/Chris_zn_sjit.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
-      <Project Name="2016-2017-V2CPSE1-03-01-print" ConfigName="Release"/>
+      <Environment/>
+      <Project Name="2016-2017-V2CPSE1-01-02-ringtone" ConfigName="Release"/>
+      <Project Name="Chris_zn_sjit" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>

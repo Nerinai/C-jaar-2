@@ -23,7 +23,7 @@ include $(BMPTK)Makefile.due
 
 
 main.cpp: Makefile decoder.exe player.hpp
-	decoder play_melody "songs/2 Pac - Changes.txt" > main.cpp
+	decoder play_melody "songs/A Team - Theme.txt" > main.cpp
 	
 decoder.exe: decoder.cpp
 	g++ decoder.cpp -o decoder.exe
