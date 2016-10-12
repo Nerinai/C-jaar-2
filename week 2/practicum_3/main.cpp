@@ -33,13 +33,47 @@ bool streq(const STRING<size1> &str, const STRING<size2> &other) {
     return !strcmp(str.c_str(), other.c_str());
 }
 
-class phony_string {
+template <size_t size>
+class string_phony
+{
+	size_t index = 0;
+	char string[size +1] = { };
 public:
-	const char * operator <<(const char * phony){
-		return phony;
-	}
-};
 
+string_phony() = default;
+
+string_phony& operator += (const char * str){
+	const char * base_addr = str;
+	size_t ind = 0;
+	while ((*str != '\0') && (index + ind < size)){
+		ind++;
+		str++;
+	}
+	
+	str = base_addr;
+	
+	for(size_t i = ind; i > 0; i--){
+			string[index] = * str;
+			index++;
+			str++;
+	}
+	string[index] = '\0';
+	return *this;
+	}
+	
+	char * c_str(){
+		return string;
+	}
+
+	const char * c_str() const {
+		return string;
+	}
+
+	string_phony & operator << (const char * str){
+		return *this += str;
+	}
+
+};
 
 TEST_CASE("Creating empty strings", "[string]") {
     STRING<8> s;
@@ -143,33 +177,43 @@ TEST_CASE("Assigning shit", "[string]") {
 }
 
 TEST_CASE("testing the << operator", "[string]"){
+	// streaming string into other string
 	STRING<10> s1("testtext");
-	phony_string string;
-	REQUIRE(!strcmp(string << s1, s1.c_str()));
+	string_phony<10> s2;
+	s2 << s1;
+	REQUIRE(!strcmp(s1.c_str(),s2.c_str()));
+	//hwlib::cout << s1 << hwlib::endl;
+	//std::cout << s1 << std::endl;
 }
 
 TEST_CASE ("testing the [] operator", "[string]"){
 	
+	//looking up a character
 	STRING<10> s1("abcdefg");
 	REQUIRE(s1[2] == 'c');
 	REQUIRE(failed == false);
 	
+	//requiesting a character out of scope
 	char ptr = s1[10];
 	REQUIRE(failed == true);
 	failed = false;
 	
+	//character request
 	ptr = s1[6];
 	REQUIRE(failed == false);
 	REQUIRE(ptr == 'g');
 	
+	//failed request to another string
 	char& ptr2 = s1[9];
 	REQUIRE(failed == true);
 	failed = false;
 	
+	//character request to another string
 	ptr2 = s1[0];
 	REQUIRE(failed == false);
 	REQUIRE(ptr2 == 'a');
 	
+	//Replacing a character within the sting
 	s1[3] = 'A';
 	REQUIRE(failed == false);
 	REQUIRE(s1[3] == 'A');
@@ -178,11 +222,12 @@ TEST_CASE ("testing the [] operator", "[string]"){
 }
 
 TEST_CASE ("testing the clear() function", "[string]"){
-	
+	//initialize sting and test its contents
 	STRING<5> s1("hallo");
 	REQUIRE(s1.length() == 5);
 	REQUIRE(streq(s1, "hallo"));
 	
+	//clearing the string
 	s1.clear();
 	REQUIRE(s1.length() == 0);
 	REQUIRE(streq(s1, ""));
@@ -190,12 +235,15 @@ TEST_CASE ("testing the clear() function", "[string]"){
 
 TEST_CASE ("testing c_str() function", "[string]"){
 	
+	//literal string return
 	STRING<10> s1("hallo");
 	REQUIRE(!strcmp(s1.c_str(), "hallo"));
 	
+	//comparing the pointers
 	STRING<10> s2("hallo");
 	REQUIRE(!strcmp(s1.c_str(), s2.c_str()));
 	
+	//comparing the output
 	STRING<10> s3(s2);
 	char * ptr1 = s2.c_str();
 	const char * ptr2 = s3.c_str();
@@ -221,43 +269,84 @@ TEST_CASE ("testing length() function", "[string]") {
 	REQUIRE(s1.length() == 10);
 }
 
+//jan
+TEST_CASE("Test += operators for empty string with const char *", "[string]") {
+    STRING<8> s;
+    s += "vier";
+    REQUIRE(s.length() == 4);
+    REQUIRE(streq(s, "vier"));
+    REQUIRE(failed == false);
 
+    STRING<2> s2;
+    s2 += "vier";
+    REQUIRE(s2.length() == 2);
+    REQUIRE(streq(s2, "vi"));
+    REQUIRE(failed == false);
+}
 
-// TEST_CASE("Reading characters", "[string]") {
-//     STRING<8> s("hoi");
-//     REQUIRE(failed == false);
-//     REQUIRE(s.length() == 3);
+ TEST_CASE("Test += operators for already filled string with const char *", "[string]") {
+    STRING<8> s("vier");
+    s += "honderdduizend";
+    REQUIRE(s.length() == 8);
+    REQUIRE(streq(s, "vierhond"));
+    REQUIRE(failed == false);
 
-//     char c = s[0];
-//     REQUIRE(failed == false);
-//     REQUIRE(c == 'h');
+    STRING<4> s2("een");
+    s2 += "x";
+    REQUIRE(s2.length() == 4);
+    REQUIRE(streq(s2, "eenx"));
+    REQUIRE(failed == false);
+}
 
-//     c = s[2];
-//     REQUIRE(failed == false);
-//     REQUIRE(c == 'i');
+TEST_CASE("Test += operators for empty string with char", "[string]") {
+    STRING<1> s;
+    s += 'X';
+    REQUIRE(s.length() == 1);
+    REQUIRE(streq(s, "X"));
+    REQUIRE(failed == false);
 
-//     c = s[3];
-//     REQUIRE(failed == true);
+    STRING<0> s2;
+    s2 += 'X';
+    REQUIRE(s2.length() == 0);
+    REQUIRE(streq(s2, ""));
+    REQUIRE(failed == false);
 
-//     failed = false;
-// }
+}
 
-// TEST_CASE("Writing characters", "[string]") {
-//     STRING<8> s("hoi");
-//     REQUIRE(failed == false);
+TEST_CASE("Test += operators for filled string with char", "[string]") {
+    STRING<2> s3;
+    s3 += 'X';
+    s3 += 'Y';
+    s3 += 'Z';
+    REQUIRE(s3.length() == 2);
+    REQUIRE(streq(s3, "XY"));
+    REQUIRE(failed == false);
+}
 
-//     char &c1 = s[0];
-//     REQUIRE(failed == false);
-//     c1 = 'H';
-//     REQUIRE(s[0] == 'H');
+TEST_CASE("Test += operators for empty and non emptey strings with other strings", "[string]") {
+    STRING<8> s("vier");
+    STRING<4> s2;
+    s2 += s;
+    REQUIRE(s2.length() == 4);
+    REQUIRE(streq(s2, "vier"));
+    REQUIRE(failed == false);
+    s += s2;
+    REQUIRE(s.length() == 8);
+    REQUIRE(streq(s, "viervier"));
+    REQUIRE(failed == false);
 
-//     char &c2 = s[2];
-//     REQUIRE(failed == false);
-//     c2 = 'n';
-//     REQUIRE(s[2] == 'n');
+    STRING<6> s3;
+    s3 += s;
+    REQUIRE(s3.length() == 6);
+    REQUIRE(streq(s3, "viervi"));
+    REQUIRE(failed == false);
+}
 
-//     char &c3 = s[3];
-//     REQUIRE(failed == true);
-
-//     failed = false;
-// }
+TEST_CASE("If you pass this you won't get a cookie (no seriously this test is checking if you return your *this pointer properly", "[string]") {
+	STRING<4> s;
+	STRING<1> s2("X");
+	((s += 'x') += s2) += "LOL";
+	REQUIRE(s.length() == 4);
+	REQUIRE(streq(s, "xXLO"));
+	REQUIRE(failed == false);
+}

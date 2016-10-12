@@ -84,24 +84,23 @@ public:
 		string[0] = '\0';
 	}
 
-	const string_template& operator += (const string_template& str){
+	string_template& operator += (const string_template& str){
 		
-		*this += str.c_str();
 		
-	return *this;
+	return *this += str.c_str();
 	}
 	
-	const string_template& operator += (char str){
+	string_template& operator += (char str){
 		
 		const char whoop[2] = {str, '\0'};
 		
 		return *this += whoop;
 	}
 	
-	const string_template& operator += (const char * str){
+	string_template& operator += (const char * str){
 	const char * base_addr = str;
 	size_t ind = 0;
-	while ((*str != '\0') && (ind < size)){
+	while ((*str != '\0') && (index + ind < size)){
 		ind++;
 		str++;
 	}
@@ -118,19 +117,22 @@ public:
 	}
 	
 	
-	const string_template& operator = (const char * str){
+	string_template& operator = (const char * str){
 		clear();
 		return *this += str;
 	}
 	
-	const string_template& operator = (const string_template& str){
+	string_template& operator = (const string_template& str){
 		clear();
 		return *this += str.c_str();
 	}
 
-	const string_template& operator = (char str){
+	string_template& operator = (char str){
 		clear();
-		
+		return *this += str;
+	}
+	
+	string_template & operator << (const char * str){
 		return *this += str;
 	}
 	
