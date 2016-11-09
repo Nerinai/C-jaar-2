@@ -172,51 +172,41 @@ void secondending(hwlib::glcd_oled_buffered & oled, int pos){
 }
 
 void clock(hwlib::glcd_oled_buffered & oled, hwlib::pin_in & uurknop, hwlib::pin_in & minutknop){
-	int sec = 270;
-	int min = 270;
-	int hr = 270;
-	
+	int sec, secdeg, min, mindeg, hr, hrdeg;
+	int startpoint = 270;
+	int offset = 0;
 	for (int i = 0; i < 360; i += 30){
 	hwlib::circle(hwlib::location(lookup_table<25>::cosinget(i) + 64,lookup_table<25>::sinusget(i) + 32), 3).draw(oled);
 	oled.flush();
 	}
 	
-	int tick = 0;
-	
+	auto startime = hwlib::now_us();
 	for (;;){
-		if (tick == 3){
-			sec += 6;
-		}
-		if ((sec == 270 && tick == 3 )|| !minutknop.get()){
-			min += 6;
-		}
-		if ((min == 270 && sec == 270 && tick == 3) || !uurknop.get()){
-			hr += 30;
-		}
-
-		if (sec == 360){
-			sec = 0;
-		} 
-		if (min == 360){
-			min = 0;
-		}
-		if ( hr == 360){
-			hr = 0;
-		}
+		auto timepassed = ((hwlib::now_us() - startime) / 1000000) + offset;
 		
-		if (tick < 3){
-			tick ++;
-		} else {
-			tick = 0;
-		}
+			if(!minutknop.get()){
+				offset += 60;
+			}
+			if(!uurknop.get()){
+				offset += 3600;
+			}
+		
+			sec = timepassed % 60;
+			secdeg =(6 * sec + startpoint) % 360;
+			
+			min = (timepassed / 60) %60;
+			mindeg =(6 * min + startpoint) % 360;
+			
+			hr = ((timepassed /60) /60) %12; 
+			hrdeg =(30 * hr +  (min/2) + startpoint) %360;
+			
 	
 	drawclock(oled);
-	secondending(oled, sec);
-	kwijzer(oled, min);
-	gwijzer(oled, hr);
+	secondending(oled, secdeg);
+	kwijzer(oled, hrdeg);
+	gwijzer(oled, mindeg);
 	
 	oled.flush();
-	hwlib::wait_ms(250);
 	}
 	
 	

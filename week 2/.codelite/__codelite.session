@@ -4,23 +4,16 @@
   <wxString Value="C:\Users\Dorf\Dropbox\school\C++ en ASSEMBLER\week 2\__codelite.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
-      <wxString Value="C:\Users\Dorf\Dropbox\school\C++ en ASSEMBLER\week 2\practicum_3\string_template.hpp" Name="FileName"/>
-      <int Value="136" Name="FirstVisibleLine"/>
-      <int Value="145" Name="CurrentLine"/>
+      <wxString Value="C:\Users\Dorf\Dropbox\school\C++ en ASSEMBLER\week 2\practicum_4\main.cpp" Name="FileName"/>
+      <int Value="149" Name="FirstVisibleLine"/>
+      <int Value="160" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="C:\Users\Dorf\Dropbox\school\C++ en ASSEMBLER\week 2\practicum_3\main.cpp" Name="FileName"/>
-      <int Value="17" Name="FirstVisibleLine"/>
-      <int Value="19" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\Dorf\Dropbox\school\C++ en ASSEMBLER\week 2\practicum_3\include\internal\catch_default_main.hpp" Name="FileName"/>
-      <int Value="10" Name="FirstVisibleLine"/>
-      <int Value="28" Name="CurrentLine"/>
+      <wxString Value="C:\Users\Dorf\Dropbox\school\C++ en ASSEMBLER\week 2\2016-2017-V2CPSE1-01-02-ringtone\main.cpp" Name="FileName"/>
+      <int Value="51" Name="FirstVisibleLine"/>
+      <int Value="70" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

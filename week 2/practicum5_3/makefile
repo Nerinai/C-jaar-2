@@ -16,14 +16,11 @@ HEADERS :=
 
 # other places to look for files for this project
 SEARCH  := 
+
 # set BMPTK to the next higher directory and defer to the Makefile.due
 BMPTK := $(BMPTK)../
 include $(BMPTK)Makefile.due
 
-main.exe : compressed.asm main.cpp decompress.asm
-	gcc compressed.asm main.cpp decompress.asm -o main.exe
+# main.exe : compressed.asm main.cpp decompress.asm
+#	g++ compressed.asm main.cpp decompress.asm -o main.exe
 
-compressed.asm : make_compressed.exe
-
-make_compressed.exe : make_compressed.cpp wilhelmus.txt
-	gcc make_compressed.cpp -o make_compressed.exe

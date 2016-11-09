@@ -28,7 +28,7 @@ loop:
 	cmp r2, #'@'
 	beq readback
 	
-	cmp r2, #0
+	cmp r2, #'\0'
 	beq done
 	
 	strb r2, [r1]
@@ -49,6 +49,7 @@ readback:
 	add r3, r3, #1
 	add r0, r0, #1
 	ldrb r4, [r0]
+	add r0, r0, #1
 	mov r5, r1
 	sub r3, r3, #' '
 	sub r4, r4, #' '

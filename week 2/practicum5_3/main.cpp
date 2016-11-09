@@ -2,13 +2,13 @@
 
 extern "C" {
 	void put_int(int c){
-		hwlib::cout << c << hwlib::endl;
-		//hwlib::wait_ms(10);
+		hwlib::cout << " " << c <<hwlib::endl;
+		hwlib::wait_ms(500);
 	}
 	
 	void put_char( char c ){
       hwlib::cout << c;
-	  hwlib::wait_ms(100);
+	  //hwlib::wait_ms(100);
    }
    
    void decompress(void);
