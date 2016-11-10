@@ -1,0 +1,28 @@
+#############################################################################
+#
+# Project Makefile
+#
+# (c) Wouter van Ooijen (www.voti.nl) 2016
+#
+# This file is in the public domain.
+#
+#############################################################################
+
+# source files in this project (main.cpp is automatically assumed)
+SOURCES := compressed.asm decompress.asm
+
+# header files in this project
+HEADERS :=
+
+# other places to look for files for this project
+SEARCH  :=
+
+# set BMPTK to the next higher directory and defer to the Makefile.due
+BMPTK := $(BMPTK)../
+include $(BMPTK)Makefile.due
+
+compressed.asm : make_compressed.exe wilhelmus.txt
+	./make_compressed.exe
+
+make_compressed.exe : make_compressed.cpp
+	g++ -o $@ $< -std=c++14
